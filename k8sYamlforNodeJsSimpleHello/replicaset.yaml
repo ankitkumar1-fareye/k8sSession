@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+  name: my-nodejs-hello-app-replicaset
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: my-nodejs-hello-app
+  template:
+    metadata:
+      labels:
+        app: my-nodejs-hello-app
+    spec:
+      containers:
+      - name: my-nodejs-hello-app-container
+        image: ankitkumar95/kubesession_123:hellonodejs
+        ports:
+       - containerPort: 8080
+
